@@ -10,31 +10,30 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <div class="container mt-4">
+    <form action="submit", method="POST">{% csrf_token %}
+      <h2>SuperStore</h2>
+      <!-- Campo para usário e senha -->
+      <div class="form-group">
+        <label for="username">Usuário</label>
+        <input type="text", class="form-control" id="username" name="username" placeholder="Usuário">
+      </div>
 
-<div class="jumbotron text-center">
-  <h1>My First Bootstrap Page</h1>
-  <p>Resize this responsive page to see the effect!</p> 
-</div>
-  
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>        
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password", class="form-control" id="password" name="password" placeholder="Senha">
+      </div>
+
+      <div>
+        {% for message in messages %}
+        <div class="alert alert-danger">
+          <strong>Error!</strong> {{ message }}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </div>
+
+    </form>
   </div>
-</div>
-
 </body>
 </html>
