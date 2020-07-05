@@ -1,0 +1,28 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+<h1 class="text-center">Detalhes do Produto</h1>
+
+<div class="container mp-4 mb-4">
+    <div class="row">
+        <div class="col-sm-4">
+            <div  style="border-color: cornflowerblue; border-style: solid; width: 256px;">
+                <img src="{{product.photo.url}}" width="250" height="250" style="margin-top: 16px">
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <p><b>Nome: </b>{{ product.name}}</p>
+            <p><b>Descrição: </b>{{ product.description }}</p>
+            <p><b>Preço R$: </b>{{ product.price}}</p>
+            <!--Botões-->
+            <a href="#">
+            <button type="button" class="btn btn-primary">Alterar</button>
+            </a>
+            <button type="button" class="btn btn-danger">Excluir</button>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

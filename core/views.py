@@ -3,13 +3,24 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages 
 from django.contrib.auth.decorators import login_required
-
+from .models import Product
 # Create your views here.
 
 #segurança para não acessar a pagina autenficada pelo link
 @login_required(login_url='/login/')
-def index(request):
-    return render(request, 'index.html')
+def list_all_store(request):
+    product = Product.objects.filter(active=True)
+    print(product.query)
+    return render(request, 'list.html', {'product': product})
+
+def list_user_store(request):
+    product = Product.objects.filter(active=True, user=request.user)
+    return render(request, 'list.html', {'product': product})
+
+def store_detail (request, id):
+    product = Product.objects.get(active=True, id=id)
+    print(product.id)
+    return render(request, 'product.html', {'product': product})
 
 #Permitir que o usario saia da conta
 def logout_user(request):
