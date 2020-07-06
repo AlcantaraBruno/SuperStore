@@ -28,6 +28,9 @@ urlpatterns = [
     path('login/', views.login_user),
     path('login/submit', views.submit_login),
     path('logout/', views.logout_user),
+    path('store/register', views.register_product),
+    path('store/register/submit', views.set_product),
+    path('store/delete/<id>', views.delete_product),
     path('', RedirectView.as_view(url='store/all/') ),
 ]
 urlpatterns += staticfiles_urlpatterns()

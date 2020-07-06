@@ -7,6 +7,27 @@ from .models import Product
 # Create your views here.
 
 #segurança para não acessar a pagina autenficada pelo link
+
+@login_required(login_url='/login/')
+def register_product (request):
+    return render(request, 'register-product.html')
+
+def set_product (request):
+    name = request.POST.get('name')
+    description = request.POST.get('description')
+    price = request.POST.get('price')
+    photo = request.FILES.get('file')
+    user = request.user
+    product = Product.objects.create(name=name, description=description, price=price,photo=photo, user=user)
+
+    url = '/store/detail/{}'.format(product.id)
+    return redirect (url)
+
+def delete_product (request, id):
+    product = Product.objects.get(id=id)
+    product.delete()
+    return redirect('/')
+
 @login_required(login_url='/login/')
 def list_all_store(request):
     product = Product.objects.filter(active=True)

@@ -9,7 +9,8 @@ class Product (models.Model):
     description = models.TextField()
     #lembrar modificar o tipo do price
     price = models.CharField(max_length = 11)
-    photo = models.ImageField(upload_to='photostore')
+    #begin_date = models.DateTimeField(auto_now_add=True)
+    photo = models.ImageField(upload_to='photostore') 
     #desafio
     active = models.BooleanField(default=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
