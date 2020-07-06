@@ -10,15 +10,34 @@ from .models import Product
 
 @login_required(login_url='/login/')
 def register_product (request):
+    product_id = request.GET.get('id')
+    if product_id:
+        product = Product.objects.get(id=product_id)
+        print(product.name)
+        return render(request, 'register-product.html', {'product':product})
     return render(request, 'register-product.html')
 
 def set_product (request):
     name = request.POST.get('name')
+    code = request.POST.get('code')
     description = request.POST.get('description')
     price = request.POST.get('price')
     photo = request.FILES.get('file')
+    product_id = request.POST.get('product-id')
     user = request.user
-    product = Product.objects.create(name=name, description=description, price=price,photo=photo, user=user)
+    #Verificação da Alteração dos Dados 
+    if product_id:
+        product = Product.objects.get(id=product_id)
+
+        product.name = name
+        product.code = code
+        product.description = description
+        if photo:
+            product.photo = photo
+        product.save()
+
+    else:
+        product = Product.objects.create(name=name, code = code, description=description, price=price, photo=photo, user=user)
 
     url = '/store/detail/{}'.format(product.id)
     return redirect (url)

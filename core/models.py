@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 #class dos produtos
 class Product (models.Model):
     name = models.CharField(max_length=100)
+    code = models.CharField(max_length=10)
     description = models.TextField()
     #lembrar modificar o tipo do price
     price = models.CharField(max_length = 11)

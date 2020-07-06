@@ -36,10 +36,11 @@
         </div>
         <div class="col-sm-8">
             <p><b>Nome: </b>{{ product.name}}</p>
+            <p><b>Código:</b>{{product.code}}</p>
             <p><b>Descrição: </b>{{ product.description }}</p>
             <p><b>Preço R$: </b>{{ product.price}}</p>
             <!--Botões-->
-            <a href="#">
+            <a href="/store/register/?id={{ product.id }}">
             <button type="button" class="btn btn-primary">Alterar</button>
             </a>
 

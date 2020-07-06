@@ -2,26 +2,37 @@
 
 {% block content %}
     <h1 class="text-center">Cadastrar Produto</h1>
-    <form enctype="multipart/form-data" action="register/submit", method="POST">{% csrf_token %}
-
+    <form enctype="multipart/form-data" action="/store/register/submit", method="POST">{% csrf_token %}
+        <!-- Para identificar se é uma alterção ou uma nova inserção-->
+        <input type="number" class="form-control" name="product-id" value="{{ product.id }}" hidden>
         <div class="container">
             <div class="form-group">
                 <label for="name">Nome</label>
-                <input class="form-control" name="name" type="text">
+                <input class="form-control" name="name" type="text" value="{{product.name}}">
+            </div>
+            <div class="form-group">
+                <label for="code">Código:</label>
+                <input class="form-control" name="code" type="text" value="{{product.code}}">
             </div>
             <div class="form-group">
                 <label for="description">Descrição</label>
-                <textarea class="form-control" name="description" type="text"></textarea>
+                <textarea class="form-control" name="description" type="text">{{product.description}}</textarea>
             </div>
             <div class="form-group">
                 <label for="price">Preço</label>
-                <input class="form-control" name="price" type="text">
+                <input class="form-control" name="price" type="text" value="{{product.price}}">
             </div>
             <div class="form-group">
                 <input type="file" class="form-control-file border" name="file" accept="image/*">
+                <a href="/media/{{ product.photo }}" target="_blank">Foto Atual</a>
             </div>
-
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-primary">
+                {% if product %}
+                    Alterar
+                {% else %}
+                    Cadastar
+                {% endif %}
+            </button>
     
         </div>
     </form>
