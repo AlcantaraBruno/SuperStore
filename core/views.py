@@ -32,6 +32,7 @@ def set_product (request):
         product.name = name
         product.code = code
         product.description = description
+        product.price = price
         if photo:
             product.photo = photo
         product.save()

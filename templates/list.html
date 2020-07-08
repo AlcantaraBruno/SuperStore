@@ -4,25 +4,34 @@
 <style>
     .polaroid{
         width:250px;
+        border-radius: 10px 10px 10px 10px;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
         text-align: center;
+        
     }
 
     .container{
-        padding: 10px;
+        padding: 5px;
+        margin: 10px;
+    }
+    .fonte{
+        font-family: 'Titillium Web', sans-serif;
+        color:  rgb(34, 129, 207);
     }
 </style>
 {% endblock %}
 {% block content %}
-    <div class="container mb-4">
+    <div class="container mp-4 mb-4 ">
+        <h1 class="text-center pt-4 mb-5 fonte">Produtos</h1>
         <div class="row">
+            
             {% for p in product %}
             <div class="col-sm-4"> 
-                <a href="../detail/{{p.id}}">
+                <a href="../detail/{{p.id}}" style="text-decoration: none;">
                     <div class="polaroid">
                         <img src="{{p.photo.url}}" style="width:100%">
                         <div class="container">
-                            <p>{{p.name}}</p>
+                            <h5 class="font"><b>{{p.name}}</b></h5>
                         </div>
                     </div>
                 </a>

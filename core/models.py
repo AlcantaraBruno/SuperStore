@@ -12,7 +12,6 @@ class Product (models.Model):
     price = models.CharField(max_length = 11)
     #begin_date = models.DateTimeField(auto_now_add=True)
     photo = models.ImageField(upload_to='photostore') 
-    #desafio
     active = models.BooleanField(default=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
