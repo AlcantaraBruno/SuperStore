@@ -1,7 +1,7 @@
 # SuperStore
 Aplicação para cadastro de produtos desenvolvido em Django com as funções de cadastar, alterar e deletar produtos. 
 
-# Available Scripts
+## Available Scripts
 
 No diretório do projeto, você pode executar:
 
@@ -21,6 +21,7 @@ python manage.py runserver
 ### `python manage.py createsuperuser`
 
 Execute esse comando para criar seu usuário e senha e acessa o app.
+
 
 
 
