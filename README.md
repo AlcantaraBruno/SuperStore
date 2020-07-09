@@ -31,7 +31,7 @@ Execute esse comando para criar seu usuário e senha e acessa o app.
 
 ![Tela de Login (1)](https://user-images.githubusercontent.com/32379195/87056348-dee88380-c1db-11ea-9ee1-841a6687c82a.png)
 
-> Aqui se encontra os produtos já cadastro e a possibilidade de cadastrar mais e da logout
+> Aqui se encontra os produtos já cadastrado e a possibilidade de cadastrar mais e da logout
 
 
 
