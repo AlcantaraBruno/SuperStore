@@ -35,7 +35,7 @@ Execute esse comando para criar seu usuário e senha e acessa o app.
 
 ![Tela de Login (2)](https://user-images.githubusercontent.com/32379195/87059522-c712fe80-c1df-11ea-98f1-92e5d2be2545.png)
 
-> Ao clicar em um produto vc pode ver os detalhes sobre ele com a possibilidade e alterar ou excluir.
+> Ao clicar em um produto você poderá ver os detalhes sobre ele, com a possibilidade de alterar ou excluir.
 
 
 
